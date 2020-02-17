@@ -1,7 +1,8 @@
-# skills-text-extration-go
+# email_tflite_go
 
 Build app
-LD_LIBRARY_PATH=${PWD}/libs CGO_CFLAGS=-I/${PWD} CGO_LDFLAGS=-L"${PWD}/libs -lrt -lm" CGO_ENABLED=1 GOOS=linux go build -o application .
+Linux : LD_LIBRARY_PATH=${PWD}/libs CGO_CFLAGS=-I/${PWD} CGO_LDFLAGS=-L"${PWD}/libs -lrt -lm" CGO_ENABLED=1 GOOS=linux go build -o application .
+Mac : LD_LIBRARY_PATH=${PWD}/libs CGO_CFLAGS=-I/${PWD} CGO_LDFLAGS=-L"${PWD}/libs -lm" CGO_ENABLED=1 go build -o application .
 
 Run app
 export LD_LIBRARY_PATH=${PWD}/libs

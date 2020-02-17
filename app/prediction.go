@@ -1,13 +1,10 @@
 package app
-package nlp
 
 import (
-	"encoding/json"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"bufio"
-	"dialogmgr/core"
 	"fmt"
 	"os"
 	"strconv"
@@ -36,7 +33,7 @@ var case2Idx = map[string]int{
 	"PADDING_TOKEN":  7,
 }
 
-type localNlp struct {
+type categorization struct {
 	interpreter *tflite.Interpreter
 	idx2Label   map[int]string
 	word2Idx    map[string]int
@@ -56,7 +53,7 @@ func (a *Application) addPredictionRoute() {
 	a.router.HandleFunc("/predict", a.Predict)
 	a.router.HandleFunc("/classify", a.Classify)
 }
-'''
+/*
 // Predict the answer from a given content
 func (a *Application) Predict(w http.ResponseWriter, r *http.Request) {
 	input := RequestBody{}
@@ -89,7 +86,7 @@ func (a *Application) Predict(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
-'''
+*/
 
 func (a *Application) Classify(r ClassifierRequest) ([]ClassifierResult, error) {
 
